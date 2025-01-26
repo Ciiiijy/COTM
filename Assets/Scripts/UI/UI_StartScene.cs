@@ -17,6 +17,13 @@ public class UI_StartScene : MonoBehaviour
             GameMgr.I.onTheBus.Show(); 
 
         });
+
+        btn_Quit.onClick.AddListener(() =>
+        {
+            Hide();
+            UIMgr.I.ui_StartScene.Hide();
+
+        });
     }
 
     public void Show()
