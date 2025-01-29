@@ -8,20 +8,27 @@ public class UI_StartScene : MonoBehaviour
     public Button btn_StartGame;
     public Button btn_Options;
     public Button btn_Quit;
+    public Image darkImg;
 
     public void Init()
     {
-        btn_StartGame.onClick.AddListener(()=>
+        btn_StartGame.onClick.AddListener(() =>
         {
-            Hide();
-            GameMgr.I.onTheBus.Show(); 
-
+            DarkCurtain.I.ChangeScene(
+                () =>
+                { 
+                    Hide(); 
+                }, 
+                () => 
+                {
+                    GameMgr.I.onTheBus.Show(); 
+                });
         });
 
         btn_Quit.onClick.AddListener(() =>
         {
             Hide();
-            UIMgr.I.ui_StartScene.Hide();
+            //TODO:Need to Quit the game.
 
         });
     }
@@ -38,12 +45,12 @@ public class UI_StartScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

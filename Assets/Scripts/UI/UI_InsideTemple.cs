@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UI_InsideTemple : MonoBehaviour
 {
+
     public void Init()
     {
         Hide();
