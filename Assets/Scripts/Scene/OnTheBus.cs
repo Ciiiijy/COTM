@@ -7,20 +7,23 @@ public class OnTheBus : MonoBehaviour
 {
     public Transform bus;
     public Transform character;
-
-
+    public Transform bg;
+    public Transform curtain_left1;
+    public Transform curtain_left2;
+    public Transform curtain_right1;
+    public Transform curtain_right2;
     
     public void Init() 
     {
         Hide();
     }
 
-    private void Anim_ShackBus() 
+    private void Anim_ShackBus()
     {
         DOTween.Sequence()
-            .Append(bus.DOLocalMoveY(0.37f,0.2f))
+            .Append(bus.DOLocalMoveY(0.2f, 0.2f))
             .Append(bus.DOLocalMoveY(0f, 0.2f))
-            .SetLoops(-1,LoopType.Yoyo);
+            .SetLoops(-1, LoopType.Yoyo);
     }
 
     public void Show() { gameObject.SetActive(true); }
