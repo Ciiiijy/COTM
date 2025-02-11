@@ -20,7 +20,7 @@ public class DarkCurtain : MonoBehaviour
     }
     Sequence sq;
 
-    public void ChangeScene(Action close, Action open, float duration = 1.5f, float hodlOn = 5f)
+    public void ChangeScene(Action close, Action open, float duration = 1.5f, float hodlOn = 1f)
     {
         sq.Kill();
 
