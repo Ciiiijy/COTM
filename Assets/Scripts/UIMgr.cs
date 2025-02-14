@@ -11,7 +11,8 @@ public class UIMgr : MonoBehaviour
     public UI_DeadForest ui_DeadForest;
     public UI_Cemetery ui_Cemetery;
     public DarkCurtain darkCurtain;
-
+    public UI_Chat ui_Chat;
+    public LineBooks lineBooks;
 
 
 
@@ -25,7 +26,9 @@ public class UIMgr : MonoBehaviour
         ui_DeadForest.Init();
         ui_Cemetery.Init();
         darkCurtain.Init();
-
+        lineBooks.Init();
+        ui_Chat.Init();
+    
 
         ui_StartScene.Show();
     }

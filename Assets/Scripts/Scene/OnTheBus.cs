@@ -31,6 +31,7 @@ public class OnTheBus : MonoBehaviour
     {
         //
         DOTween.Sequence()
+            .AppendInterval(1f)
             .Append(bus.DOLocalMoveY(0.05f, 0.15f))
             .Append(bus.DOLocalMoveY(0f, 0.2f))
             .Append(bus.DOLocalMoveY(0.05f, 0.15f))
@@ -44,7 +45,6 @@ public class OnTheBus : MonoBehaviour
         AddCurtainAnimation(curtain_left1);
         AddCurtainAnimation(curtain_left2);
         AddCurtainAnimation(curtain_right1);
-        AddCurtainAnimation(curtain_right2);
 
         AddCharacterAnimation(character);
     }
@@ -64,10 +64,11 @@ public class OnTheBus : MonoBehaviour
     private void AddCharacterAnimation(Transform character)
     {
         DOTween.Sequence()
+            .AppendInterval(1f)
             .Append(character.DOLocalMoveY(0.01f, 0.2f))
             .Append(character.DOLocalMoveY(0f, 0.15f))
             .Append(character.DOLocalMoveY(0.01f, 0.2f))
-            .Append(character.DOLocalMoveY(0f, 0.2f))
+            .Append(character.DOLocalMoveY(0f, 0.15f))
             .AppendInterval(1f)
             .Append(character.DOLocalMoveY(0.01f, 0.2f))
             .Append(character.DOLocalMoveY(0f, 0.15f))

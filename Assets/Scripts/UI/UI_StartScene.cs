@@ -21,7 +21,8 @@ public class UI_StartScene : MonoBehaviour
                 }, 
                 () => 
                 {
-                    GameMgr.I.onTheBus.Show(); 
+                    GameMgr.I.onTheBus.Show();
+                    UI_Chat.I.Show();
                 });
         });
 
