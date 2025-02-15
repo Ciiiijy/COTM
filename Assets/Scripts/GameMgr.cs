@@ -11,6 +11,7 @@ public class GameMgr : MonoBehaviour
     public OnTheMountain onTheMountain;
     public Ending ending;
 
+    public Dictionary<string, SceneFunc> dic_SceneGameObj = new Dictionary<string, SceneFunc>();
 
 
     private void Awake()
@@ -23,17 +24,19 @@ public class GameMgr : MonoBehaviour
         onTheMountain.Init();
         ending.Init();
 
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        InitDictionary();
     }
+    public void InitDictionary()
+    {
+        dic_SceneGameObj.Add("OnTheBus", onTheBus);
+        dic_SceneGameObj.Add("BusStation", busStation);
+        //dic_SceneGameObj.Add(,);
+    }
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public interface SceneFunc 
+{
+    public void Show();
+    public void Hide();
 }

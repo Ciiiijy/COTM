@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class UIMgr : MonoBehaviour
     public UI_Chat ui_Chat;
     public LineBooks lineBooks;
 
+    public Dictionary<string, SceneFunc> dic_UiObj = new Dictionary<string, SceneFunc>();       
 
 
     private void Awake()
@@ -31,17 +33,15 @@ public class UIMgr : MonoBehaviour
     
 
         ui_StartScene.Show();
+        
+        InitDictionary();
+
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void InitDictionary() 
     {
-        
-    }
+        dic_UiObj.Add("UI_FangsOldHouse", ui_FangsOldHouse);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
+    
 }

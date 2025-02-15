@@ -2896,7 +2896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.33651853}
-  m_AnchoredPosition: {x: -2.1900024, y: 17.92102}
+  m_AnchoredPosition: {x: -2.1899414, y: 17.92102}
   m_SizeDelta: {x: 4.3799, y: -23.1502}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &728204187
@@ -4987,6 +4987,7 @@ MonoBehaviour:
   - Fang|On trade, I have decided for purposes of fairness
   - Trump|Wall Street - anxious that tariffs may add to inflation and keep the Federal
     Reserve from cutting interest rates further
+  - '*E|OnTheBus|BusStation,UI_FangsOldHouse'
 --- !u!1 &1729992618
 GameObject:
   m_ObjectHideFlags: 0

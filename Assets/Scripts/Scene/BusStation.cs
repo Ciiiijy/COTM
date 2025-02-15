@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BusStation : MonoBehaviour
+public class BusStation : MonoBehaviour,SceneFunc
 {
 
 

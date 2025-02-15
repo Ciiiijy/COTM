@@ -49,7 +49,12 @@ public class UI_Chat : MonoBehaviour
 
     private void PlayOneLineInTyping()
     {
-        
+        if (index >= chatList.Count)
+        {
+            Hide();
+            return;
+        }
+
         if (!isFinished) return;
 
         //[1].Pick up one line from the dialogue script.p
@@ -58,11 +63,45 @@ public class UI_Chat : MonoBehaviour
         index++;
 
         string[] strArray = str.Split('|');
-        name_TMP.text = strArray[0];
-        string oneLine = strArray[1];
+        if (strArray[0] == "*E")
+        {
+            //Close
+            string[] str_Open = strArray[1].Split(',');
+            //Open
+            string[] str_Close = strArray[2].Split(',');
+            DarkCurtain.I.ChangeScene(
+                () =>
+                {
+                    foreach (var item in str_Open)
+                    {
+                        if (GameMgr.I.dic_SceneGameObj.ContainsKey(item))
+                            GameMgr.I.dic_SceneGameObj[item].Hide();
+                        if (UIMgr.I.dic_UiObj.ContainsKey(item))
+                            UIMgr.I.dic_UiObj[item]?.Hide();
+                    }
+                },
+                () =>
+                {
+                    foreach (var item in str_Close)
+                    {
+                        if (GameMgr.I.dic_SceneGameObj.ContainsKey(item))
+                            GameMgr.I.dic_SceneGameObj[item].Show();
+                        if (UIMgr.I.dic_UiObj.ContainsKey(item))
+                            UIMgr.I.dic_UiObj[item].Show();
+                    }
+                });
 
-        //[2].Play it.
-        StartCoroutine(TypeWrite(oneLine));
+            name_TMP.text = string.Empty;
+            line_TMP.text = string.Empty;
+            Hide();
+        }
+        else
+        {
+            name_TMP.text = strArray[0];
+            string oneLine = strArray[1];
+            //[2].Play it.
+            StartCoroutine(TypeWrite(oneLine));
+        }
     }
 
     private IEnumerator TypeWrite(string str)

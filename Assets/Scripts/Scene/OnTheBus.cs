@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnTheBus : MonoBehaviour
+public class OnTheBus : MonoBehaviour,SceneFunc
 {
     public Transform bus;
     public Transform character;
