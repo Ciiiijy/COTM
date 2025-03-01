@@ -7,6 +7,7 @@ public class GameMgr : MonoBehaviour
     public static GameMgr I;
     public BusStation busStation;
     public OnTheBus onTheBus;
+    public FangsOldHouse fangsoldhouse;
     public OldHouse oldHouse;
     public OnTheMountain onTheMountain;
     public Ending ending;
@@ -19,6 +20,7 @@ public class GameMgr : MonoBehaviour
         I = this;
         //Init each module here.
         busStation.Init();
+        fangsoldhouse.Init();
         onTheBus.Init();
         oldHouse.Init();
         onTheMountain.Init();

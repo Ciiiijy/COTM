@@ -63,6 +63,7 @@ public class UI_Chat : MonoBehaviour
         index++;
 
         string[] strArray = str.Split('|');
+        //If this line start with E, end this scene.
         if (strArray[0] == "*E")
         {
             //Close
