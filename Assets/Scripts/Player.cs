@@ -1,25 +1,21 @@
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BusStation : MonoBehaviour,SceneFunc
+public class Player : MonoBehaviour
 {
-
-
-    public void Init() 
+    public void Init()
     {
         Hide();
     }
-
     public void Show() 
     {
-        gameObject.SetActive(true);
-        GameMgr.I.player.Show();
-        GameMgr.I.npcs.GetNpc("Rui").SetActive(true);
+        this.gameObject.SetActive(true);
     }
     public void Hide() 
     {
-        gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update

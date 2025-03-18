@@ -11,6 +11,8 @@ public class GameMgr : MonoBehaviour
     public OldHouse oldHouse;
     public OnTheMountain onTheMountain;
     public Ending ending;
+    public Player player;
+    public NPCs npcs;
 
     public Dictionary<string, SceneFunc> dic_SceneGameObj = new Dictionary<string, SceneFunc>();
 
@@ -25,7 +27,8 @@ public class GameMgr : MonoBehaviour
         oldHouse.Init();
         onTheMountain.Init();
         ending.Init();
-
+        player.Init();
+        npcs.Init();
 
         InitDictionary();
     }
