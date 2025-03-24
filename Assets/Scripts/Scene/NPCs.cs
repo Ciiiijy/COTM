@@ -7,6 +7,8 @@ public class NPCs : MonoBehaviour
     Dictionary<string, GameObject> dic_NPCs = new Dictionary<string, GameObject>();
 
     public GameObject rui;
+    public GameObject cishan;
+    public GameObject alex;
 
 
     public void Init()
@@ -14,6 +16,9 @@ public class NPCs : MonoBehaviour
         Show();
 
         dic_NPCs.Add("Rui",rui);
+        dic_NPCs.Add("Cishan", cishan);
+        dic_NPCs.Add("Alex", alex);
+
 
 
         foreach (var item in dic_NPCs.Values)
