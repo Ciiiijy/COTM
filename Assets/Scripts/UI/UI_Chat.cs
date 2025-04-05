@@ -63,17 +63,26 @@ public class UI_Chat : MonoBehaviour
         index++;
 
         string[] strArray = str.Split('|');
-        //If this line start with E, end this scene.
+
+        //if this line start with *E£¬end this talk.
         if (strArray[0] == "*E")
         {
+            name_TMP.text = string.Empty;
+            line_TMP.text = string.Empty;
+            Hide();
+        }
+
+        //If this line start with *ES, end this scene and move to another scene.
+        if (strArray[0] == "*ES")
+        {
             //Close
-            string[] str_Open = strArray[1].Split(',');
+            string[] str_OpenSceneArray = strArray[1].Split(',');
             //Open
-            string[] str_Close = strArray[2].Split(',');
+            string[] str_CloseSceneArray = strArray[2].Split(',');
             DarkCurtain.I.ChangeScene(
                 () =>
                 {
-                    foreach (var item in str_Open)
+                    foreach (var item in str_OpenSceneArray)
                     {
                         if (GameMgr.I.dic_SceneGameObj.ContainsKey(item))
                             GameMgr.I.dic_SceneGameObj[item].Hide();
@@ -83,7 +92,7 @@ public class UI_Chat : MonoBehaviour
                 },
                 () =>
                 {
-                    foreach (var item in str_Close)
+                    foreach (var item in str_CloseSceneArray)
                     {
                         if (GameMgr.I.dic_SceneGameObj.ContainsKey(item))
                             GameMgr.I.dic_SceneGameObj[item].Show();

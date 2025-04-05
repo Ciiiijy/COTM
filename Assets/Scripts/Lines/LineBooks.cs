@@ -6,6 +6,7 @@ public class LineBooks : MonoBehaviour
 {
     public static LineBooks I;
     public List<string> list_OnTheBus;
+    public List <string> list_BusStation;
 
     public void Init()
     {

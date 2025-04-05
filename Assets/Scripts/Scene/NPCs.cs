@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class NPCs : MonoBehaviour
 {
-    Dictionary<string, GameObject> dic_NPCs = new Dictionary<string, GameObject>();
+    public Dictionary<string, NPC> dic_NPCs = new Dictionary<string, NPC>();
+    
+    public NPC rui;
+    public NPC cishan;
+    public NPC alex;
 
-    public GameObject rui;
-    public GameObject cishan;
-    public GameObject alex;
 
 
     public void Init()
     {
-        Show();
+        ShowNPCs();
 
         dic_NPCs.Add("Rui",rui);
         dic_NPCs.Add("Cishan", cishan);
@@ -23,21 +24,21 @@ public class NPCs : MonoBehaviour
 
         foreach (var item in dic_NPCs.Values)
         {
-            item.SetActive(false);
+            item.Init();
         }
 
     }
 
     public GameObject GetNpc(string name) 
     {
-       return dic_NPCs[name];
+       return dic_NPCs[name].gameObject;
     }
     
-    public void Show() 
+    public void ShowNPCs() 
     {
         this.gameObject.SetActive(true);
     }
-    public void Hide() 
+    public void HideNPCs() 
     {
         this.gameObject.SetActive(false);
     }
