@@ -3719,7 +3719,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895086530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.44, y: 0, z: 0}
+  m_LocalPosition: {x: -5.25, y: -0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3753,6 +3753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434b3fd4d46835844b05170493ce2e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canTalk: 0
+  npc_Name: 
 --- !u!61 &895086534
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3766,7 +3768,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.057425797, y: -1.6366343}
+  m_Offset: {x: -1.18674, y: -1.6366343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3777,7 +3779,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4594063, y: 5.6514864}
+  m_Size: {x: 1.3199847, y: 5.6514864}
   m_EdgeRadius: 0
 --- !u!50 &895086535
 Rigidbody2D:
@@ -4726,7 +4728,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 6acc6e6ce61579c47b04989801053fdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5301,7 +5303,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.785149, y: -0.54726315}
+  m_Offset: {x: -2.4087112, y: -0.54726315}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5312,7 +5314,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0910892, y: 3.5232964}
+  m_Size: {x: 2.843965, y: 3.5232964}
   m_EdgeRadius: 0
 --- !u!114 &1612954212
 MonoBehaviour:
@@ -5536,20 +5538,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf5902f5f7e27548bc3f0d123dee495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  list_OnTheBus:
-  - 'Fang|Hello! '
-  - Trump|Trump signed a memo ordering his team to start calculating duties to match
-    those other countries charge and to counteract non-tariff barriers such as vehicle
-    safety rules that exclude U.S.
-  - Trump|W
-  - Trump|WASHINGTON, Feb 13 (Reuters)
-  - Fang|On trade, I have decided for purposes of fairness
-  - Trump|Wall Street - anxious that tariffs may add to inflation and keep the Federal
-    Reserve from cutting interest rates further
-  - '*ES|OnTheBus|BusStation|'
-  list_BusStation:
-  - 1
-  - 2
+  list_PlayerMonologue_OnTheBus:
+  - Fang|1
+  - Fang|2
+  - Fang|3
+  - '*ES|OnTheBus|BusStation,UI_BusStation'
+  list_Rui_BusStation:
+  - Rui|11
+  - Rui|22
+  - Rui|33
   - '*E'
 --- !u!1 &1729992618
 GameObject:
@@ -5661,7 +5658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730320573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.72, z: 0}
+  m_LocalPosition: {x: -1.17, y: -1.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

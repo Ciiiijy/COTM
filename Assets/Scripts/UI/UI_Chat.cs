@@ -26,7 +26,7 @@ public class UI_Chat : MonoBehaviour
             PlayOneLineInTyping();
         });
 
-        SetList(LineBooks.I.list_OnTheBus);
+        SetList(LineBooks.I.list_PlayerMonologue_OnTheBus);
 
         name_TMP.text = string.Empty;
         line_TMP.text = string.Empty;
@@ -57,7 +57,7 @@ public class UI_Chat : MonoBehaviour
 
         if (!isFinished) return;
 
-        //[1].Pick up one line from the dialogue script.p
+        //[1].Pick up one line from the dialogue script.
 
         string str = chatList[index];
         index++;
@@ -70,10 +70,11 @@ public class UI_Chat : MonoBehaviour
             name_TMP.text = string.Empty;
             line_TMP.text = string.Empty;
             Hide();
+            index = 0;
+            Player.I.CanMove(true);
         }
-
         //If this line start with *ES, end this scene and move to another scene.
-        if (strArray[0] == "*ES")
+        else if (strArray[0] == "*ES")
         {
             //Close
             string[] str_OpenSceneArray = strArray[1].Split(',');
@@ -104,6 +105,8 @@ public class UI_Chat : MonoBehaviour
             name_TMP.text = string.Empty;
             line_TMP.text = string.Empty;
             Hide();
+            index = 0;
+            Player.I.CanMove(true);
         }
         else
         {
