@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BusStation : MonoBehaviour,SceneFunc
 {
-
+    public Wall wall_L;
+    public Wall wall_R;
 
     public void Init() 
     {
         Hide();
+        wall_L.Init();
+        wall_R.Init();
     }
 
     public void Show() 

@@ -1,6 +1,7 @@
 using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -53,6 +54,31 @@ public class Player : MonoBehaviour
         GameMgr.I.npcs.dic_NPCs[name].HideUI();
         npc_Name = "";//string.Empty;
 
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Wall_L_BusStation") 
+        {
+            print("前面就是商业街，我应该先回家。");
+        }
+        if (collision.gameObject.name == "Wall_R_BusStation")
+        {
+            print("是否前往深山老家？Y/N");
+
+        }
+
+    }
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Wall_L_BusStation")
+        {
+            print("我不往前走了，转身回来。");
+        }
+        if (collision.gameObject.name == "Wall_R_BusStation")
+        {
+            print("暂时留在公交站，再观察一下吧。");
+        }
     }
 
 

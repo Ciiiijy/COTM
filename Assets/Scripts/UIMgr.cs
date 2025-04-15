@@ -7,6 +7,7 @@ public class UIMgr : MonoBehaviour
 {
     public static UIMgr I;
     public UI_StartScene ui_StartScene;
+    public UI_BusStation busStation;
     public UI_InsideTemple ui_InsideTewmple;
     public UI_DeadForest ui_DeadForest;
     public UI_Cemetery ui_Cemetery;
@@ -22,6 +23,7 @@ public class UIMgr : MonoBehaviour
         I = this;
         //Init each module here.
         ui_StartScene.Init();
+        busStation.Init();
         ui_InsideTewmple.Init();
         ui_DeadForest.Init();
         ui_Cemetery.Init();
@@ -38,8 +40,8 @@ public class UIMgr : MonoBehaviour
 
     public void InitDictionary() 
     {
-        //dic_UiObj.Add("FangsOldHouse", FangsOldHouse);
-
+        dic_UiObj.Add("UI_BusStation", busStation);
+        //Continue....
     }
     
 }
