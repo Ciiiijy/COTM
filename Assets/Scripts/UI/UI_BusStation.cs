@@ -6,17 +6,14 @@ using UnityEngine.UI;
 public class UI_BusStation : MonoBehaviour,SceneFunc
 {
     public Button btn_R;
-
+    public Button btn_L;
     public void Init() 
     {
-        if (btn_R)
-            btn_R.onClick.AddListener(() =>
-            {
-
-            });
-
-
+        Hide();
+        btn_L?.gameObject.SetActive(false);
+        btn_R?.gameObject.SetActive(false); 
     }
+    
 
     public void Show()
     {
@@ -27,14 +24,7 @@ public class UI_BusStation : MonoBehaviour,SceneFunc
         this.gameObject.SetActive(false);
     }
 
-    public void ShowBtn() 
-    {
-        btn_R.gameObject.SetActive(true);
-    }
-    public void HideBtn() 
-    {
-        btn_R.gameObject.SetActive(false);
-    }
+
 
 
 

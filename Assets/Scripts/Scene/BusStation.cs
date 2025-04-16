@@ -23,6 +23,7 @@ public class BusStation : MonoBehaviour,SceneFunc
     public void Hide() 
     {
         gameObject.SetActive(false);
+        GameMgr.I.npcs.GetNpc("Rui").SetActive(false);
     }
 
     // Start is called before the first frame update

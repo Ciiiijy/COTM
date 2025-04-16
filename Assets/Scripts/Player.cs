@@ -27,6 +27,12 @@ public class Player : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    public void SetPosition(Vector2 localPosition)
+    {
+        this.transform.position = localPosition;
+    }
+
+
     public void CanTalk(bool canTalk)
     {
         this.canTalk = canTalk;

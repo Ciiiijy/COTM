@@ -23,9 +23,9 @@ public class PlayerMove : MonoBehaviour
     {
         if (canMove)
         {
-            animator.SetFloat("Horizontal", Input.GetAxisRaw("Horizontal"));
+            animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
-            Vector3 horizontal = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+            Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
             transform.position = transform.position + horizontal * Time.deltaTime * speed;
         }
     }

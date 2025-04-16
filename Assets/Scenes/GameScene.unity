@@ -373,7 +373,7 @@ RectTransform:
   m_Children:
   - {fileID: 829543653}
   m_Father: {fileID: 212424320}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1300,6 +1300,7 @@ RectTransform:
   - {fileID: 707403701}
   - {fileID: 483492788}
   - {fileID: 444542972}
+  - {fileID: 1201261185}
   - {fileID: 599982524}
   - {fileID: 1494944280}
   - {fileID: 1300881759}
@@ -1327,7 +1328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui_StartScene: {fileID: 483492789}
-  busStation: {fileID: 444542973}
+  ui_busStation: {fileID: 444542973}
+  ui_oldHouse: {fileID: 1201261186}
   ui_InsideTewmple: {fileID: 1300881760}
   ui_DeadForest: {fileID: 1441026515}
   ui_Cemetery: {fileID: 1494944281}
@@ -2116,7 +2118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d058de24c49a3b4fa21e59fb345854f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn: {fileID: 540310647}
+  btn_R: {fileID: 540310647}
+  btn_L: {fileID: 0}
 --- !u!1 &455739040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,7 +2277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &490065920
 Transform:
   m_ObjectHideFlags: 0
@@ -2380,6 +2383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc65c01301dd4844a83fe9f2689be3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn: {fileID: 0}
   sceneName: 
   lineBookName: 
 --- !u!1 &519420028
@@ -2513,7 +2517,7 @@ GameObject:
   - component: {fileID: 540310648}
   - component: {fileID: 540310647}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Btn_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2537,7 +2541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 843.9142, y: 157.44135}
+  m_AnchoredPosition: {x: 795, y: 254}
   m_SizeDelta: {x: 278.2963, y: 94.3825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540310647
@@ -3131,7 +3135,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 212424320}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3935,7 +3939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895086530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: -0.16, z: 0}
+  m_LocalPosition: {x: -1.84, y: -0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4725,7 +4729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1077965970
 Transform:
   m_ObjectHideFlags: 0
@@ -4877,6 +4881,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172283687}
   m_CullTransparentMesh: 1
+--- !u!1 &1201261184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1201261185}
+  - component: {fileID: 1201261186}
+  m_Layer: 5
+  m_Name: UI_OldHouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1201261185
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201261184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 212424320}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1201261186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201261184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e3c099e916df54db62a63eefda7d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1214481738
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,6 +5001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc65c01301dd4844a83fe9f2689be3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn: {fileID: 540310647}
   sceneName: OldHouse
   lineBookName: 
 --- !u!1 &1300881758
@@ -4985,7 +5039,7 @@ RectTransform:
   - {fileID: 1014393425}
   - {fileID: 1847473339}
   m_Father: {fileID: 212424320}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5364,7 +5418,7 @@ RectTransform:
   - {fileID: 70051865}
   - {fileID: 774581359}
   m_Father: {fileID: 212424320}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5414,7 +5468,7 @@ RectTransform:
   m_Children:
   - {fileID: 772189408}
   m_Father: {fileID: 212424320}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5696,7 +5750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1612954210
 Transform:
   m_ObjectHideFlags: 0
@@ -5997,7 +6051,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729992618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6194,7 +6248,7 @@ RectTransform:
   - {fileID: 1705185085}
   - {fileID: 1172283688}
   m_Father: {fileID: 212424320}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6506,14 +6560,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c623d0ec4847f7a4db112e327eaef936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcs: {fileID: 2014043226}
+  player: {fileID: 895086533}
   busStation: {fileID: 490065921}
   onTheBus: {fileID: 1529673855}
   fangsOldHouse: {fileID: 0}
   oldHouse: {fileID: 894692983}
   onTheMountain: {fileID: 770152028}
   ending: {fileID: 936766982}
-  player: {fileID: 895086533}
-  npcs: {fileID: 2014043226}
 --- !u!1 &1971226959
 GameObject:
   m_ObjectHideFlags: 0
@@ -6530,7 +6584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1971226960
 Transform:
   m_ObjectHideFlags: 0

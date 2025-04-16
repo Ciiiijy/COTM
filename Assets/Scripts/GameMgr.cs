@@ -5,14 +5,16 @@ using UnityEngine;
 public class GameMgr : MonoBehaviour
 {
     public static GameMgr I;
+    public NPCs npcs;      
+    public Player player;
     public BusStation busStation;
     public OnTheBus onTheBus;
     public FangsOldHouse fangsOldHouse;
     public OldHouse oldHouse;
     public OnTheMountain onTheMountain;
     public Ending ending;
-    public Player player;
-    public NPCs npcs;
+
+   
 
     public Dictionary<string, SceneFunc> dic_SceneGameObj = new Dictionary<string, SceneFunc>();
 
@@ -21,14 +23,15 @@ public class GameMgr : MonoBehaviour
     {
         I = this;
         //Init each module here.
+        player.Init();
+        npcs.Init();            //Must do at the beginning.
         busStation.Init();
-        fangsOldHouse.Init();
+        //fangsOldHouse.Init();
         onTheBus.Init();
         oldHouse.Init();
         onTheMountain.Init();
         ending.Init();
-        player.Init();
-        npcs.Init();
+  
 
         InitDictionary();
     }
@@ -36,6 +39,7 @@ public class GameMgr : MonoBehaviour
     {
         dic_SceneGameObj.Add("OnTheBus", onTheBus);
         dic_SceneGameObj.Add("BusStation", busStation);
+        dic_SceneGameObj.Add("OldHouse",oldHouse);
         //dic_SceneGameObj.Add(,);
     }
 }
