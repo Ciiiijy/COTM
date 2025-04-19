@@ -5,7 +5,13 @@ using UnityEngine;
 public class OldHouse : MonoBehaviour, SceneFunc
 {
 
-    private Vector2 startLocalPos;
+    private Vector2 startLocalPos;  //Spawn the Player.
+
+    //The Limitation of the scene for the camera moving.
+    public float leftPos;
+    public float rightPos;
+
+
     public void Init()
     {
         Hide();
@@ -28,6 +34,13 @@ public class OldHouse : MonoBehaviour, SceneFunc
     // Update is called once per frame
     void Update()
     {
+        var playerPos_X = Player.I.transform.position.x;
+        //if (playerPos_X< rightPos.) 
+        //{
+
+        //}
+
+
 
     }
 }

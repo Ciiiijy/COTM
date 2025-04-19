@@ -5,11 +5,11 @@ using UnityEngine;
 public class GameMgr : MonoBehaviour
 {
     public static GameMgr I;
+    public CameraCtrl cameraCtrl;
     public NPCs npcs;      
     public Player player;
     public BusStation busStation;
     public OnTheBus onTheBus;
-    public FangsOldHouse fangsOldHouse;
     public OldHouse oldHouse;
     public OnTheMountain onTheMountain;
     public Ending ending;
@@ -23,10 +23,10 @@ public class GameMgr : MonoBehaviour
     {
         I = this;
         //Init each module here.
+        cameraCtrl.Init();
         player.Init();
         npcs.Init();            //Must do at the beginning.
         busStation.Init();
-        //fangsOldHouse.Init();
         onTheBus.Init();
         oldHouse.Init();
         onTheMountain.Init();
