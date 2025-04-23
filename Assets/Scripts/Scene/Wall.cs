@@ -63,20 +63,20 @@ public class Wall : MonoBehaviour
     Vector2 onStage = new Vector2(795, 254);
     public void ShowBtn()
     {
-        btn.gameObject.SetActive(true);
+        btn?.gameObject.SetActive(true);
 
         DOTween.Sequence()
-            .Append(btn.transform.DOLocalMoveX(onStage.x, 0.2f));
+            .Append(btn?.transform.DOLocalMoveX(onStage.x, 0.2f));
     }
 
 
     public void HideBtn()
     {
         DOTween.Sequence()
-            .Append(btn.transform.DOLocalMoveX(offStage.x, 0.2f))
+            .Append(btn?.transform.DOLocalMoveX(offStage.x, 0.2f))
             .AppendCallback(() => 
             {
-                btn.gameObject.SetActive(false);
+                btn?.gameObject.SetActive(false);
             });
     }
     // Start is called before the first frame update

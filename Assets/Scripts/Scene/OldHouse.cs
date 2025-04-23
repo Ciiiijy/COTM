@@ -34,13 +34,6 @@ public class OldHouse : MonoBehaviour, SceneFunc
     // Update is called once per frame
     void Update()
     {
-        var playerPos_X = Player.I.transform.position.x;
-        //if (playerPos_X< rightPos.) 
-        //{
-
-        //}
-
-
-
+        CameraCtrl.I.TryCameraFollowing(leftPos, rightPos);
     }
 }

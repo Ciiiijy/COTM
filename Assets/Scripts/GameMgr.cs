@@ -23,7 +23,6 @@ public class GameMgr : MonoBehaviour
     {
         I = this;
         //Init each module here.
-        cameraCtrl.Init();
         player.Init();
         npcs.Init();            //Must do at the beginning.
         busStation.Init();
@@ -31,7 +30,8 @@ public class GameMgr : MonoBehaviour
         oldHouse.Init();
         onTheMountain.Init();
         ending.Init();
-  
+        cameraCtrl.Init();
+
 
         InitDictionary();
     }
@@ -42,6 +42,9 @@ public class GameMgr : MonoBehaviour
         dic_SceneGameObj.Add("OldHouse",oldHouse);
         //dic_SceneGameObj.Add(,);
     }
+
+
+
 }
 
 public interface SceneFunc 

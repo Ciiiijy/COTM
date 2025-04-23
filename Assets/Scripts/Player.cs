@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
         string name = collision.gameObject.name;
 
-        GameMgr.I.npcs.dic_NPCs[name].ShowUI();
+        GameMgr.I.npcs.dic_NPCs[name]?.ShowUI();
         npc_Name = name;
 
     }
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         CanTalk(false);
 
         string name = collision.gameObject.name;
-        GameMgr.I.npcs.dic_NPCs[name].HideUI();
+        GameMgr.I.npcs.dic_NPCs[name]?.HideUI();
         npc_Name = "";//string.Empty;
 
     }
