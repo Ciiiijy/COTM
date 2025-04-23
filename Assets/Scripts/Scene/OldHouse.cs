@@ -7,6 +7,9 @@ public class OldHouse : MonoBehaviour, SceneFunc
 
     private Vector2 startLocalPos;  //Spawn the Player.
 
+    public Wall wall_L;
+    public Wall wall_R;
+
     //The Limitation of the scene for the camera moving.
     public float leftPos;
     public float rightPos;
@@ -14,6 +17,9 @@ public class OldHouse : MonoBehaviour, SceneFunc
 
     public void Init()
     {
+        wall_L.Init();
+        wall_R.Init();
+
         Hide();
         startLocalPos = new Vector2(-7, Player.I.transform.position.y);
     }

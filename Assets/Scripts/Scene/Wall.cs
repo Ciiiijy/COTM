@@ -8,6 +8,9 @@ using static UnityEditor.Progress;
 public class Wall : MonoBehaviour
 {
     public Button btn;
+    public Vector2 btn_offStagePos;
+    public Vector2 btn_onStagePos;
+
     public string sceneName;        //The scene you will head to.
     public string lineBookName;     //The lines will be triggered and presented.
 
@@ -15,7 +18,7 @@ public class Wall : MonoBehaviour
     {
         string curtSceneName = this.transform.parent.gameObject.name;
 
-        if (btn) 
+        if (btn)
         {
             btn.onClick.AddListener(() =>
             {
@@ -42,10 +45,10 @@ public class Wall : MonoBehaviour
                     }
                 });
             });
-            btn.transform.localPosition = offStage;
+            btn.transform.localPosition = btn_offStagePos;
             btn.gameObject.SetActive(false);
         }
-       
+
 
     }
 
@@ -58,23 +61,20 @@ public class Wall : MonoBehaviour
         HideBtn();
     }
 
-
-    Vector2 offStage = new Vector2(1132,254);
-    Vector2 onStage = new Vector2(795, 254);
     public void ShowBtn()
     {
         btn?.gameObject.SetActive(true);
 
         DOTween.Sequence()
-            .Append(btn?.transform.DOLocalMoveX(onStage.x, 0.2f));
+            .Append(btn?.transform.DOLocalMoveX(btn_onStagePos.x, 0.2f));
     }
 
 
     public void HideBtn()
     {
         DOTween.Sequence()
-            .Append(btn?.transform.DOLocalMoveX(offStage.x, 0.2f))
-            .AppendCallback(() => 
+            .Append(btn?.transform.DOLocalMoveX(btn_offStagePos.x, 0.2f))
+            .AppendCallback(() =>
             {
                 btn?.gameObject.SetActive(false);
             });

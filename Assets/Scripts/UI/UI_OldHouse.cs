@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_OldHouse : MonoBehaviour, SceneFunc
 {
+    public Button btn_L;
+
     public void Init()
     {
+        btn_L?.gameObject.SetActive(false);
         Hide();
     }
 
