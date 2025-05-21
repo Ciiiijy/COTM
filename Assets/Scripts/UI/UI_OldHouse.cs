@@ -7,12 +7,20 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
 {
     public Button btn_L;
 
+    public Button btn_back;
+    private GameObject currentObj;
+    public GameObject calendar;
+    
     public void Init()
     {
         btn_L?.gameObject.SetActive(false);
         Hide();
+        btn_back.onClick.AddListener(() => 
+        {
+            btn_back.gameObject.SetActive(false);
+            currentObj?.SetActive(false);
+        });
     }
-
 
     public void Show()
     {
@@ -22,6 +30,14 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
     {
         gameObject.SetActive(false);
     }
+
+    public void ShowCalendar() 
+    {
+        calendar.SetActive(true);
+        btn_back.gameObject.SetActive(true);
+        currentObj = calendar;
+    }
+
 
 
     // Start is called before the first frame update
