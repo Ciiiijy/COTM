@@ -26,7 +26,12 @@ public class ClickRaycastDetector : MonoBehaviour
                     print($"Hit>| {boxcollider.gameObject.name} ");
                     if (boxcollider.gameObject.name == "Calendar") 
                     {
-                        UIMgr.I.ui_oldHouse.ShowCalendar();
+                        UIMgr.I.ui_oldHouse.pnl_calendar.ShowCalendar();
+                    }
+                    else if (boxcollider.gameObject.name == "Clock") 
+                    {
+                        UIMgr.I.ui_oldHouse.ShowClock();
+                        //chair的写在这里
                     }
                 }
             }

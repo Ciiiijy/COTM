@@ -1,0 +1,80 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.PackageManager.Requests;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UI_OldHouse : MonoBehaviour, SceneFunc
+{
+    public Button btn_L;
+    public Button btn_back;
+    public Button btn_cannotReach;
+    public Button btn_moveTheChair;
+    private GameObject currentObj;
+    public Pnl_Calendar pnl_calendar;
+    public GameObject clock;
+
+
+    public void Init()
+    {
+        btn_L?.gameObject.SetActive(false);
+        btn_back?.gameObject.SetActive(false);
+        btn_cannotReach?.gameObject.SetActive(false);
+        btn_moveTheChair?.gameObject.SetActive(false);
+
+        pnl_calendar.Init();
+
+
+        Hide();
+
+        btn_back.onClick.AddListener(() =>
+        {
+            btn_back.gameObject.SetActive(false);
+            currentObj?.SetActive(false);
+            GameMgr.I.player.CanMove(true);
+        });
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+
+   
+    /// <summary>
+    /// Let the button can shut down the current Object Detial Inspection.
+    /// </summary>
+    /// <param name="currentObj">The Obj you have shown.</param>
+
+    public void ShowClock()
+    {
+        btn_cannotReach.gameObject.SetActive(true);
+
+        if (Player.I.GetComponent<PlayerMove>())
+        {
+            btn_cannotReach.gameObject.SetActive(false);
+        }
+    }
+
+    public void ShowBtnBack(GameObject currentObj)
+    {
+        this.currentObj = currentObj;
+        btn_back.gameObject.SetActive(true);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+}
