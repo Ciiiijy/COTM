@@ -54,7 +54,7 @@ public class CameraCtrl : MonoBehaviour
         var playerPos = Player.I.transform.position;
         Camera.main.transform.position = new Vector3(
             playerPos.x,
-            playerPos.y, 
+            0,//playerPos.y, 
             Camera.main.transform.position.z);
 
     }

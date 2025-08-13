@@ -9,6 +9,10 @@ public class OldHouse : MonoBehaviour, SceneFunc
 
     public Wall wall_L;
     public Wall wall_R;
+    public bool canSetClock;
+    public bool canMoveChair;
+
+
 
     //The Limitation of the scene for the camera moving.
     public float leftPos;
@@ -30,6 +34,16 @@ public class OldHouse : MonoBehaviour, SceneFunc
         Player.I.transform.localPosition = startLocalPos;
     }
     public void Hide() { gameObject.SetActive(false); }
+
+    //public void CanSetClock(bool value)
+    //{
+    //    canSetClock = value;
+    //}
+    //public void CanMoveChair(bool value)
+    //{
+    //    canMoveChair = value;
+    //}
+
 
     // Start is called before the first frame update
     void Start()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,22 +9,25 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
 {
     public Button btn_L;
     public Button btn_back;
-    public Button btn_cannotReach;
     public Button btn_moveTheChair;
     private GameObject currentObj;
     public Pnl_Calendar pnl_calendar;
-    public GameObject clock;
-
+    public Pnl_Clock pnl_clock;
+    public Pnl_Chair pnl_chair;
+    public Pnl_Drawer pnl_drawer;
+    public Pnl_Photo pnl_photo;
+    public Pnl_Altar pnl_altar;
 
     public void Init()
     {
         btn_L?.gameObject.SetActive(false);
         btn_back?.gameObject.SetActive(false);
-        btn_cannotReach?.gameObject.SetActive(false);
         btn_moveTheChair?.gameObject.SetActive(false);
 
         pnl_calendar.Init();
-
+        pnl_clock.Init();
+        pnl_photo.Init();
+        pnl_chair.Init();
 
         Hide();
 
@@ -50,15 +54,15 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
     /// </summary>
     /// <param name="currentObj">The Obj you have shown.</param>
 
-    public void ShowClock()
-    {
-        btn_cannotReach.gameObject.SetActive(true);
+    //public void ShowClock()
+    //{
+    //    btn_cannotReach.gameObject.SetActive(true);
 
-        if (Player.I.GetComponent<PlayerMove>())
-        {
-            btn_cannotReach.gameObject.SetActive(false);
-        }
-    }
+    //    if (Player.I.GetComponent<PlayerMove>())
+    //    {
+    //        btn_cannotReach.gameObject.SetActive(false);
+    //    }
+    //}
 
     public void ShowBtnBack(GameObject currentObj)
     {
