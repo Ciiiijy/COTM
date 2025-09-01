@@ -78,6 +78,7 @@ public class Pnl_Clock : MonoBehaviour
         Show();
         if (GameMgr.I.oldHouse.canSetClock)
         {
+            //UIMgr.I.ui_oldHouse.btn_back.gameObject.SetActive(true);
             clockFront.gameObject.SetActive(true);
             btn_adjusttime?.gameObject.SetActive(true);
             btn_lookotherside?.gameObject.SetActive(true);

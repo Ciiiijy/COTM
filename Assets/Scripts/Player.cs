@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player I;
-    PlayerMove playerMove;
+    public PlayerMove playerMove;
 
     public bool canTalk;
     public string npc_Name;
@@ -15,8 +15,9 @@ public class Player : MonoBehaviour
     public void Init()
     {
         I = this;
-        Hide();
+        //Hide();
         playerMove = GetComponent<PlayerMove>();
+        SetPosition(-7.49f, -1.81f);
     }
     public void Show()
     {
@@ -27,11 +28,10 @@ public class Player : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void SetPosition(Vector2 localPosition)
+    public void SetPosition(float x, float y)
     {
-        this.transform.position = localPosition;
+        this.transform.position = new Vector2(x, y);
     }
-
 
     public void CanTalk(bool canTalk)
     {
@@ -39,8 +39,9 @@ public class Player : MonoBehaviour
     }
     public void CanMove(bool canMove)
     {
-        playerMove.CanMove(canMove);
+        playerMove.SetPlayerMove(canMove);
     }
+
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Wall_L_BusStation") 
+        if (collision.gameObject.name == "Wall_L_BusStation")
         {
             print("前面就是商业街，我应该先回家。");
         }
@@ -101,7 +102,7 @@ public class Player : MonoBehaviour
         {
             //|____进来后，立即关闭对话条件，防止玩家频繁按E。
             canTalk = false;
-            playerMove.CanMove(false);
+            playerMove.SetPlayerMove(false);
 
             //判断遇到的是谁
             if (npc_Name == "Rui")

@@ -21,8 +21,13 @@ public class UI_StartScene : MonoBehaviour
                 }, 
                 () => 
                 {
-                    GameMgr.I.onTheBus.Show();
-                    UI_Chat.I.Show();
+                    //Give a quick test.
+                    GameMgr.I.oldHouse.Show();
+                    UIMgr.I.ui_oldHouse.Show();
+                    
+                    //The Right Game Process.
+                    //GameMgr.I.onTheBus.Show();
+                    //UI_Chat.I.Show();
                 });
         });
 

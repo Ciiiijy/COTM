@@ -11,6 +11,8 @@ public class OldHouse : MonoBehaviour, SceneFunc
     public Wall wall_R;
     public bool canSetClock;
     public bool canMoveChair;
+    public GameObject characterBack;
+    public GameObject chair;
 
 
 
@@ -24,6 +26,10 @@ public class OldHouse : MonoBehaviour, SceneFunc
         wall_L.Init();
         wall_R.Init();
 
+        characterBack.gameObject.SetActive(false);
+
+        chair.transform.localPosition = new Vector3(-1.77f, -2.37f);
+
         Hide();
         startLocalPos = new Vector2(-7, Player.I.transform.position.y);
     }
@@ -32,6 +38,7 @@ public class OldHouse : MonoBehaviour, SceneFunc
     {
         gameObject.SetActive(true);
         Player.I.transform.localPosition = startLocalPos;
+        Player.I.playerMove.PrintCanMove();
     }
     public void Hide() { gameObject.SetActive(false); }
 

@@ -9,7 +9,6 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
 {
     public Button btn_L;
     public Button btn_back;
-    public Button btn_moveTheChair;
     private GameObject currentObj;
     public Pnl_Calendar pnl_calendar;
     public Pnl_Clock pnl_clock;
@@ -22,12 +21,14 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
     {
         btn_L?.gameObject.SetActive(false);
         btn_back?.gameObject.SetActive(false);
-        btn_moveTheChair?.gameObject.SetActive(false);
+
 
         pnl_calendar.Init();
         pnl_clock.Init();
         pnl_photo.Init();
         pnl_chair.Init();
+        pnl_altar.Init();
+        pnl_drawer.Init();
 
         Hide();
 
@@ -42,6 +43,7 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
     public void Show()
     {
         gameObject.SetActive(true);
+        Player.I.playerMove.SetPlayerMove(true);
     }
     public void Hide()
     {

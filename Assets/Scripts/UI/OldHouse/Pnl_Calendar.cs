@@ -38,10 +38,6 @@ public class Pnl_Calendar : MonoBehaviour
         GameMgr.I.player.CanMove(false);
     }
 
-    public void Show()
-    {
-        this.gameObject.SetActive(true);
-    }
     public void Hide()
     {
         this.gameObject.SetActive(false);

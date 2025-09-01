@@ -14,9 +14,13 @@ public class PlayerMove : MonoBehaviour
     {
         
     }
-    public void CanMove(bool canMove)
+    public void SetPlayerMove(bool canMove)
     {
         this.canMove = canMove;
+    }
+    public void PrintCanMove()
+    {
+        print("CHECK PLAYER CAN MOVE|==> "+canMove);
     }
     // Update is called once per frame
     void Update()
