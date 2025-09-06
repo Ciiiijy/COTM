@@ -7,14 +7,19 @@ public class OldHouse : MonoBehaviour, SceneFunc
 
     private Vector2 startLocalPos;  //Spawn the Player.
 
+    public ClickRaycastDetector crd;
+
     public Wall wall_L;
     public Wall wall_R;
     public bool canSetClock;
     public bool canMoveChair;
+    public bool trueTime;
+    public bool getEyeball;
+    public bool getScript;
     public GameObject characterBack;
     public GameObject chair;
-
-
+    public GameObject clock;
+    public GameObject clock910;
 
     //The Limitation of the scene for the camera moving.
     public float leftPos;
@@ -27,6 +32,7 @@ public class OldHouse : MonoBehaviour, SceneFunc
         wall_R.Init();
 
         characterBack.gameObject.SetActive(false);
+        clock910.gameObject.SetActive(false);
 
         chair.transform.localPosition = new Vector3(-1.77f, -2.37f);
 

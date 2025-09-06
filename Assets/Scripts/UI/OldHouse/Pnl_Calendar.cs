@@ -8,19 +8,21 @@ public class Pnl_Calendar : MonoBehaviour
 {
     public Button btn_lookclosely;
     public GameObject detailGroup;
-    public TextMeshProUGUI TxtMP;
-    //public TextMeshProUGUI txt_sssss;
+    public TextMeshProUGUI txtMP;
 
     public void Init()
     {
         Hide();
+
         detailGroup?.gameObject.SetActive(false);
 
         btn_lookclosely.onClick.AddListener(() =>
         {
+            //GameMgr.I.oldHouse.crd.HideItemsCollider();
+
             detailGroup?.gameObject.SetActive(true);
             btn_lookclosely.gameObject.SetActive(false);
-            TxtMP.text = "The handwritten numbers on the calendar seem to represent time. If I could set <color=#ffa500ff>the paused clock</color> to this time, what might happen?";
+            txtMP.text = "The handwritten numbers on the calendar seem to represent time. If I could set <color=#ffa500ff>the paused clock</color> to this time, what might happen?";
         });
     }
 

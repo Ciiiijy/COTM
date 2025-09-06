@@ -34,7 +34,7 @@ public class Pnl_Chair : MonoBehaviour
         {
             btn_MoveTheChair.gameObject.SetActive(false);
 
-            GameMgr.I.player.transform.localPosition = new Vector3(10.1f,-1.81f);
+            GameMgr.I.player.transform.localPosition = new Vector3(9.78f, -1.81f);
             Player.I.gameObject.SetActive(false);
             GameMgr.I.oldHouse.characterBack.gameObject.SetActive(true);
             //characterBack.gameObject.SetActive(true);
