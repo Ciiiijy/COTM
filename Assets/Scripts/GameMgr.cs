@@ -40,7 +40,7 @@ public class GameMgr : MonoBehaviour
         dic_SceneGameObj.Add("OnTheBus", onTheBus);
         dic_SceneGameObj.Add("BusStation", busStation);
         dic_SceneGameObj.Add("OldHouse",oldHouse);
-        //dic_SceneGameObj.Add(,);
+        dic_SceneGameObj.Add("OnTheMountain", onTheMountain);
     }
 
 

@@ -9,12 +9,14 @@ public class UIMgr : MonoBehaviour
     public UI_StartScene ui_StartScene;
     public UI_BusStation ui_busStation;
     public UI_OldHouse ui_oldHouse;
-    public UI_InsideTemple ui_InsideTewmple;
+    public UI_OnTheMountain ui_onTheMountain;
+    //public UI_InsideTemple ui_insideTewmple;
     public UI_DeadForest ui_DeadForest;
     public UI_Cemetery ui_Cemetery;
     public DarkCurtain darkCurtain;
     public UI_Chat ui_Chat;
     public LineBooks lineBooks;
+    public Pnl_Sanity pnl_sanity;
 
     public Dictionary<string, SceneFunc> dic_UiObj = new Dictionary<string, SceneFunc>();       
 
@@ -26,13 +28,15 @@ public class UIMgr : MonoBehaviour
         ui_StartScene.Init();
         ui_busStation.Init();
         ui_oldHouse.Init();
-        ui_InsideTewmple.Init();
+        ui_onTheMountain.Init();
+        //ui_insideTewmple.Init();
         ui_DeadForest.Init();
         ui_Cemetery.Init();
         darkCurtain.Init();
         lineBooks.Init();
         ui_Chat.Init();
-    
+        pnl_sanity.Init();
+
 
         ui_StartScene.Show();
         
@@ -44,6 +48,8 @@ public class UIMgr : MonoBehaviour
     {
         dic_UiObj.Add("UI_BusStation", ui_busStation);
         dic_UiObj.Add("UI_OldHouse", ui_oldHouse);
+        dic_UiObj.Add("UI_OnTheMountain", ui_onTheMountain);
+        //dic_UiObj.Add("UI_InsideTemple",ui_insideTewmple);
         //Continue....
     }
     

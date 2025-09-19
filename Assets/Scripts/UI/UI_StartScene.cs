@@ -22,8 +22,8 @@ public class UI_StartScene : MonoBehaviour
                 () => 
                 {
                     //Give a quick test.
-                    GameMgr.I.oldHouse.Show();
-                    UIMgr.I.ui_oldHouse.Show();
+                    GameMgr.I.onTheMountain.Show();
+                    UIMgr.I.ui_onTheMountain.Show();
                     
                     //The Right Game Process.
                     //GameMgr.I.onTheBus.Show();

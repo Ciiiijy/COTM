@@ -1,43 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class UI_BusStation : MonoBehaviour,SceneFunc
+public class Pnl_Temple : MonoBehaviour
 {
-    public Button btn_R;
-    public Button btn_L;
-
-    public void Init() 
+    public void Init()
     {
         Hide();
-        btn_L?.gameObject.SetActive(false);
-        btn_R?.gameObject.SetActive(false); 
-    }
-    
 
-    public void Show()
+    }
+
+    public void ShowTemple()
     {
         this.gameObject.SetActive(true);
+        UIMgr.I.ui_oldHouse.ShowBtnBack(this.gameObject);
+        GameMgr.I.player.CanMove(false);
     }
+
+    // Start is called before the first frame update
     public void Hide()
     {
         this.gameObject.SetActive(false);
     }
 
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
