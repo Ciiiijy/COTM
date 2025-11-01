@@ -14,7 +14,9 @@ public class GameMgr : MonoBehaviour
     public OnTheMountain onTheMountain;
     public Ending ending;
 
-   
+    public bool checkIfWalkLeft;
+
+
 
     public Dictionary<string, SceneFunc> dic_SceneGameObj = new Dictionary<string, SceneFunc>();
 

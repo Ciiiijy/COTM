@@ -12,12 +12,11 @@ using UnityEngine.UI;
 public class Pnl_Death : MonoBehaviour
 {
     public Image RedFrame;
-    public Image San1;
-    public Image San2;
-    public Image San3;
-    public Image San4;
-    //public Image Faint;
+    public Image img_faint;
+    public Image img_back;
+    public Image black;
     public Image RedBG;
+    public GameObject Faint;
     public TextMeshProUGUI Death;
 
 
@@ -25,69 +24,71 @@ public class Pnl_Death : MonoBehaviour
     {
         Hide();
         RedFrame?.gameObject.SetActive(false);
-        San1?.gameObject.SetActive(false);
-        San2?.gameObject.SetActive(false);
-        San3?.gameObject.SetActive(false);
-        San4?.gameObject.SetActive(false);
-        //Faint?.gameObject.SetActive(false);
+        Faint?.SetActive(false);
         RedBG?.gameObject.SetActive(false);
         Death?.gameObject.SetActive(false);
 
         //AnimDeath();
     }
 
-    private void AnimDeath()
+    public void AnimWarning()
     {
         RedFrame?.gameObject.SetActive(true);
-        San1?.gameObject.SetActive(true);
-        San2?.gameObject.SetActive(true);
-        San3?.gameObject.SetActive(true);
-        San4?.gameObject.SetActive(true);
-        //Faint?.gameObject.SetActive(true);
-        RedBG?.gameObject.SetActive(true);
-        Death?.gameObject.SetActive(true);
+
+        print("Sanity warning.");
+
+        DOTween.Sequence()
+            .Append(RedFrame.DOFade(0, 0.00001f))
+
+            //RedFrame闪烁
+            .Append(RedFrame.DOFade(1, 0.5f))
+            .Append(RedFrame.DOFade(0, 0.5f))
+            .SetLoops(-1, LoopType.Restart);
+    }
+    
+    public void AnimDeath()
+    {
+        RedFrame?.gameObject.SetActive(false);
+
+        Faint?.gameObject.SetActive(true);
+        //RedBG?.gameObject.SetActive(true);
+        //Death?.gameObject.SetActive(true);
 
         print("Player died.");
 
         DOTween.Sequence()
-            .Append(RedFrame.DOFade(0, 0.00001f))
-            .Append(San1.DOFade(0, 0.00001f))
-            .Append(San2.DOFade(0, 0.00001f))
-            .Append(San3.DOFade(0, 0.00001f))
-            .Append(San4.DOFade(0, 0.00001f))
-            .Append(RedBG.DOFade(0, 0.00001f))
-            .Append(Death.DOFade(0, 0.00001f))
+            //.Append(RedBG.DOFade(0, 0.00001f))
+            //.Append(Death.DOFade(0, 0.00001f))
+            .Append(img_faint.DOFade(0,0.00001f))
+            .Append(img_back.DOFade(0,0.00001f))
+            .Append(black.DOFade(0,0.00001f))
 
-            //RedFrame闪烁
-            .Append(RedFrame.DOFade(1,0.5f))
-            .Append(RedFrame.DOFade(0, 0.5f))
-            .SetLoops(-1,LoopType.Restart)
-            
-            .Append(San1.DOFade(1, 0.5f))
-            .AppendInterval(0.5f)
-            .Join(San1.DOFade(0, 0.00001f))
 
-            .Append(San2.DOFade(1, 0.5f))
-            .AppendInterval(0.5f)
-            .Join(San2.DOFade(0, 0.00001f))
+            //.Append(RedBG.DOFade(1, 0.5f))
+            //.Join(Death.DOFade(1, 0.5f))
+            .Append(img_faint.DOFade(1,0.5f))
+            .Join(img_back.DOFade(1, 0.5f))
+            .Join(black.DOFade(1,0.5f))
 
-            .Append(San3.DOFade(1, 0.5f))
-            .AppendInterval(0.5f)
-            .Join(San3.DOFade(0, 0.00001f))
+            .AppendInterval(4f)
+            //black要重新传图
+            //img_back慢慢放大
+            //.Join(img_back)
 
-            .Append(San4.DOFade(1, 0.5f))
-            .Join(San4.DOFade(0, 0.00001f))
+            .AppendCallback(() =>
+            {
+                UIMgr.I.ui_onTheMountain.pnl_death.Faint.gameObject.SetActive(false);
+                print("Player is laying on the ground.");
 
-            .Append(RedBG.DOFade(1, 0.5f))
-            .Join(Death.DOFade(1, 0.5f))
-            .AppendInterval(2f);
+                Player.I.CharacterImg.transform.position = Vector3.one;
 
-            //.AppendCallback(() =>
-            //{
-            //    process.gameObject.SetActive(false);
-            //    standOnTheChair.gameObject.SetActive(false);
-            //});
-        //GameMgr.I.oldHouse.canSetClock = true;
+                GameMgr.I.player.CharacterImg.gameObject.SetActive(false);
+                GameMgr.I.player.CharacterDun.gameObject.SetActive(true);
+                //坐标要改
+                Player.I.CharacterDun.transform.position = Vector3.one;
+
+                GameMgr.I.player.CanMove(false);
+            });
     }
     //public void ShowDeath()
     //{
@@ -103,10 +104,6 @@ public class Pnl_Death : MonoBehaviour
     // Start is called before the first frame update
     public void Show()
     {
-        if (GameMgr.I.onTheMountain.isLeftKeyPressed)
-        {
-            Show();
-        }
         this.gameObject.SetActive(true);
     }
 

@@ -36,7 +36,6 @@ public class RuleMgr : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0)
         {
             isFaceLeft = false;
-
         }
 
         if (isFaceLeft)
@@ -49,26 +48,29 @@ public class RuleMgr : MonoBehaviour
     void DeSanValue()
     {
         if (UIMgr.I.pnl_sanity.GetCurrentSanityValue() < 0.01f) return;
- 
-      
+
         //Calculate:Time.deltaTime
 
-        float f = UIMgr.I.pnl_sanity.GetCurrentSanityValue()-(Time.deltaTime/10);
-
+        float f = UIMgr.I.pnl_sanity.GetCurrentSanityValue() - (Time.deltaTime / 10);
+        
+        print(f);
+        if (f < 0.3f)
+        {
+            UIMgr.I.ui_onTheMountain.pnl_death.AnimWarning();
+        }
         if (f<0.01f)
         {
             //Play dead anim. and sth else (UI notice).
             f = 0f;
+            UIMgr.I.ui_onTheMountain.pnl_death.Show();
+            UIMgr.I.ui_onTheMountain.pnl_death.AnimDeath();
         }
-        print(f);
+        
 
         //Set the result of the Sanity.
-        
+
 
         UIMgr.I.pnl_sanity.SetSanity(f*speed);
-        
-        
-
     }
 
     #endregion

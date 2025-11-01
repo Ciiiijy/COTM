@@ -16,6 +16,8 @@ public class OnTheBus : MonoBehaviour,SceneFunc
     public void Init() 
     {
         Hide();
+
+        GameMgr.I.player.gameObject.SetActive(false);
     }
 
     //private void AddCurtainsAndCharacterAsChildren()

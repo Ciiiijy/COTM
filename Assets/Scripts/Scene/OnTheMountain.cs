@@ -25,10 +25,12 @@ public class OnTheMountain : MonoBehaviour, SceneFunc
         wall_L.Init();
         wall_R.Init();
 
+        GameMgr.I.checkIfWalkLeft = true;
+
         Hide();
         startLocalPos = new Vector2(-7, Player.I.transform.position.y);
 
-        RuleMgr.I.CanRule(true);
+        //RuleMgr.I.CanRule(true);
     }
 
     public void Show()

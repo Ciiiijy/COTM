@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class UI_BusStation : MonoBehaviour,SceneFunc
 {
     public Button btn_R;
-    public Button btn_L;
+    //public Button btn_L;
 
     public void Init() 
     {
         Hide();
-        btn_L?.gameObject.SetActive(false);
+        //btn_L?.gameObject.SetActive(false);
         btn_R?.gameObject.SetActive(false); 
     }
     

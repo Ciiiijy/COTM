@@ -9,6 +9,9 @@ public class BusStation : MonoBehaviour,SceneFunc
 
     public void Init() 
     {
+
+        GameMgr.I.player.gameObject.SetActive(true);
+
         Hide();
         wall_L.Init();
         wall_R.Init();

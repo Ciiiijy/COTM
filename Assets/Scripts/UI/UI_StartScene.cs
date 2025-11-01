@@ -12,6 +12,8 @@ public class UI_StartScene : MonoBehaviour
 
     public void Init()
     {
+        UIMgr.I.pnl_sanity.gameObject.SetActive(false);
+
         btn_StartGame.onClick.AddListener(() =>
         {
             DarkCurtain.I.ChangeScene(
@@ -21,10 +23,10 @@ public class UI_StartScene : MonoBehaviour
                 }, 
                 () => 
                 {
-                    //Give a quick test.
+                    ////Give a quick test.
                     GameMgr.I.onTheMountain.Show();
                     UIMgr.I.ui_onTheMountain.Show();
-                    
+
                     //The Right Game Process.
                     //GameMgr.I.onTheBus.Show();
                     //UI_Chat.I.Show();

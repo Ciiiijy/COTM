@@ -34,7 +34,7 @@ public class Pnl_Chair : MonoBehaviour
         {
             btn_MoveTheChair.gameObject.SetActive(false);
 
-            GameMgr.I.player.transform.localPosition = new Vector3(9.78f, -1.81f);
+            GameMgr.I.player.transform.localPosition = new Vector3(9.78f, -4.65f);
             Player.I.gameObject.SetActive(false);
             GameMgr.I.oldHouse.characterBack.gameObject.SetActive(true);
             //characterBack.gameObject.SetActive(true);
@@ -54,8 +54,6 @@ public class Pnl_Chair : MonoBehaviour
 
         DOTween.Sequence()
             .Append(stand1.DOFade(0, 0.00001f))
-            //.Append(stand2.DOFade(0, 0.00001f))
-            //.Append(stand3.DOFade(0, 0.00001f))
 
             .Append(chairHand.transform.DOLocalMoveX(-200f, 1f))
             .AppendInterval(0.5f)
@@ -87,9 +85,8 @@ public class Pnl_Chair : MonoBehaviour
                 process.gameObject.SetActive(false);
                 standOnTheChair.gameObject.SetActive(false);
             });
-        GameMgr.I.oldHouse.canSetClock = true;
+        //GameMgr.I.oldHouse.canSetClock = true;
     }
-
 
     public void TryMoveChair()
     {
@@ -97,8 +94,6 @@ public class Pnl_Chair : MonoBehaviour
         if (GameMgr.I.oldHouse.canMoveChair)
         {
             //play a animation(moving a chair).
-            //set the character(girl) on the chair. 
-
             btn_MoveTheChair.gameObject.SetActive(true);
             this.gameObject.SetActive(true);
             GameMgr.I.oldHouse.canSetClock = true;

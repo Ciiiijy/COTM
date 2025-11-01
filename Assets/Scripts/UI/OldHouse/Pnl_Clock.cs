@@ -152,9 +152,10 @@ public class Pnl_Clock : MonoBehaviour
     public void TryShowClock()
     {
         Show();
+        this.gameObject.SetActive(true);
+
         if (GameMgr.I.oldHouse.canSetClock)
         {
-            //UIMgr.I.ui_oldHouse.btn_back.gameObject.SetActive(true);
             clockFront.gameObject.SetActive(true);
             btn_adjusttime?.gameObject.SetActive(true);
             btn_lookotherside?.gameObject.SetActive(true);
@@ -162,7 +163,6 @@ public class Pnl_Clock : MonoBehaviour
             GameMgr.I.oldHouse.trueTime = false;
             btn_lookotherside.transform.localPosition = new Vector3(351f, -40f);
 
-            this.gameObject.SetActive(true);
             UIMgr.I.ui_oldHouse.ShowBtnBack(this.gameObject);
             GameMgr.I.player.CanMove(false);
         }

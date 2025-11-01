@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class UI_OnTheMountain : MonoBehaviour, SceneFunc
 {
     public Button btn_L;
+    public Button btn_R;
     public Button btn_back;
     private GameObject currentObj;
     public Pnl_BillBoard pnl_billBoard;
@@ -23,6 +24,9 @@ public class UI_OnTheMountain : MonoBehaviour, SceneFunc
 
         Hide();
 
+        btn_L?.gameObject.SetActive(false);
+        btn_R?.gameObject.SetActive(false);
+
         btn_back.onClick.AddListener(() =>
         {
             btn_back.gameObject.SetActive(false);
@@ -30,6 +34,7 @@ public class UI_OnTheMountain : MonoBehaviour, SceneFunc
             GameMgr.I.player.CanMove(true);
         });
     }
+
 
     public void Show()
     {

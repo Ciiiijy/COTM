@@ -11,13 +11,17 @@ public class Player : MonoBehaviour
 
     public bool canTalk;
     public string npc_Name;
+    public GameObject CharacterImg;
+    public GameObject CharacterDun;
 
     public void Init()
     {
+        CharacterDun.SetActive(false);
+
         I = this;
         //Hide();
         playerMove = GetComponent<PlayerMove>();
-        SetPosition(-7.49f, -1.81f);
+        SetPosition(-7.15f, -4.69f);
     }
     public void Show()
     {

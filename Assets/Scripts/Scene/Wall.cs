@@ -32,7 +32,6 @@ public class Wall : MonoBehaviour
                         if (UIMgr.I.dic_UiObj.ContainsKey("UI_" + curtSceneName))
                             UIMgr.I.dic_UiObj["UI_" + curtSceneName]?.Hide();
                     }
-
                 },
                 () =>
                 {

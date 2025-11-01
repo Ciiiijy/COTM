@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class UI_OldHouse : MonoBehaviour, SceneFunc
 {
     public Button btn_L;
-    //public Button btn_R;
+    public Button btn_R;
     public Button btn_back;
     private GameObject currentObj;
     public Pnl_Calendar pnl_calendar;
@@ -21,6 +21,7 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
     public void Init()
     {
         btn_L?.gameObject.SetActive(false);
+        btn_R?.gameObject.SetActive(false);
         btn_back?.gameObject.SetActive(false);
 
 
