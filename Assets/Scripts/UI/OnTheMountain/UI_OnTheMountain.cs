@@ -26,6 +26,7 @@ public class UI_OnTheMountain : MonoBehaviour, SceneFunc
 
         btn_L?.gameObject.SetActive(false);
         btn_R?.gameObject.SetActive(false);
+        
 
         btn_back.onClick.AddListener(() =>
         {

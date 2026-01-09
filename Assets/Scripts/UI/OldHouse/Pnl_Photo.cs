@@ -24,8 +24,10 @@ public class Pnl_Photo : MonoBehaviour
         this.gameObject.SetActive(true);
         UIMgr.I.ui_oldHouse.ShowBtnBack(this.gameObject);
         GameMgr.I.player.CanMove(false);
+
+        GameMgr.I.oldHouse.crd.HideItemsCollider();
     }
-    
+
     public void Hide()
     {
         this.gameObject.SetActive(false);

@@ -31,6 +31,7 @@ public class OldHouse : MonoBehaviour, SceneFunc
         wall_L.Init();
         wall_R.Init();
 
+        Player.I.gameObject.SetActive(true);
         characterBack.gameObject.SetActive(false);
         clock910.gameObject.SetActive(false);
 

@@ -51,41 +51,30 @@ public class Pnl_Death : MonoBehaviour
         RedFrame?.gameObject.SetActive(false);
 
         Faint?.gameObject.SetActive(true);
-        //RedBG?.gameObject.SetActive(true);
-        //Death?.gameObject.SetActive(true);
 
         print("Player died.");
 
         DOTween.Sequence()
-            //.Append(RedBG.DOFade(0, 0.00001f))
-            //.Append(Death.DOFade(0, 0.00001f))
-            .Append(img_faint.DOFade(0,0.00001f))
-            .Append(img_back.DOFade(0,0.00001f))
-            .Append(black.DOFade(0,0.00001f))
+            .Append(img_faint.DOFade(0, 0.00001f))
+            .Append(img_back.DOFade(0, 0.00001f))
+            .Append(black.DOFade(0, 0.00001f))
 
-
-            //.Append(RedBG.DOFade(1, 0.5f))
-            //.Join(Death.DOFade(1, 0.5f))
-            .Append(img_faint.DOFade(1,0.5f))
+            .Append(img_faint.DOFade(1, 0.5f))
             .Join(img_back.DOFade(1, 0.5f))
-            .Join(black.DOFade(1,0.5f))
+            .Join(black.DOFade(1, 0.5f))
 
-            .AppendInterval(4f)
-            //black要重新传图
+            .AppendInterval(0.5f)
             //img_back慢慢放大
-            //.Join(img_back)
+            .Append(img_back.rectTransform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 5f))
 
             .AppendCallback(() =>
             {
                 UIMgr.I.ui_onTheMountain.pnl_death.Faint.gameObject.SetActive(false);
                 print("Player is laying on the ground.");
 
-                Player.I.CharacterImg.transform.position = Vector3.one;
 
                 GameMgr.I.player.CharacterImg.gameObject.SetActive(false);
                 GameMgr.I.player.CharacterDun.gameObject.SetActive(true);
-                //坐标要改
-                Player.I.CharacterDun.transform.position = Vector3.one;
 
                 GameMgr.I.player.CanMove(false);
             });

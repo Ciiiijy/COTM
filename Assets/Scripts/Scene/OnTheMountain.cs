@@ -28,7 +28,8 @@ public class OnTheMountain : MonoBehaviour, SceneFunc
         GameMgr.I.checkIfWalkLeft = true;
 
         Hide();
-        startLocalPos = new Vector2(-7, Player.I.transform.position.y);
+        //startLocalPos = new Vector2(-8.42f, Player.I.transform.position.y);
+        startLocalPos = new Vector2(-8.42f, -4.04f);
 
         //RuleMgr.I.CanRule(true);
     }

@@ -39,6 +39,8 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
             btn_back.gameObject.SetActive(false);
             currentObj?.SetActive(false);
             GameMgr.I.player.CanMove(true);
+
+            GameMgr.I.oldHouse.crd.ShowItemsCollider();
         });
     }
 
@@ -77,7 +79,7 @@ public class UI_OldHouse : MonoBehaviour, SceneFunc
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame

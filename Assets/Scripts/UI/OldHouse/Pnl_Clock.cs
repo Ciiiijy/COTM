@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,12 +18,14 @@ public class Pnl_Clock : MonoBehaviour
     public TextMeshProUGUI mechanicsHint;
     public TextMeshProUGUI looksDifferent;
     public GameObject clockFront;
+    public GameObject clockPointer;
     public GameObject clockFront910;
     public GameObject clockBack;
     public GameObject clockBackOpen;
-    public GameObject clockBackCover;
     public GameObject eyeballGroup;
     public GameObject monologue_NeedMoveChair;
+    public Image clockBackCover;
+    public Image eyeBallDetail;
 
     public void Init()
     {
@@ -35,6 +38,7 @@ public class Pnl_Clock : MonoBehaviour
         mechanicsHint?.gameObject.SetActive(false);
         looksDifferent?.gameObject.SetActive(false);
         clockFront?.gameObject.SetActive(false);
+        clockPointer?.gameObject.SetActive(false);
         clockFront910?.gameObject.SetActive(false);
         clockBack?.gameObject.SetActive(false);
         eyeballGroup?.gameObject.SetActive(false);
@@ -42,20 +46,17 @@ public class Pnl_Clock : MonoBehaviour
         Shutdown_NeedMoveChair.onClick.AddListener(() =>
         {
             monologue_NeedMoveChair.SetActive(false);
+
+            GameMgr.I.oldHouse.crd.ShowItemsCollider();
         });
 
-        btn_adjusttime.onClick.AddListener(() =>
+        btn_adjusttime.onClick.AddListener(() => //³öÍ¼»»³ÉÐý×ª
         {
             btn_lookotherside?.gameObject.SetActive(false);
             btn_adjusttime?.gameObject.SetActive(false);
-            clockFront?.gameObject.SetActive(false);
             clockBack?.gameObject.SetActive(false);
-
-            //btn_back.gameObject.SetActive(true);
-            btn_lookotherside.gameObject.SetActive(true);
-            clockFront910.gameObject.SetActive(true);
-            GameMgr.I.oldHouse.trueTime = true;
-            //btn_back.transform.localPosition = new Vector3(351f, 120f);
+            
+            AnimRotatePointer();
 
         });
 
@@ -75,6 +76,7 @@ public class Pnl_Clock : MonoBehaviour
                 clockBack.gameObject.SetActive(false);
 
                 clockFront.gameObject.SetActive(true);
+                clockPointer?.gameObject.SetActive(true);
                 btn_adjusttime?.gameObject.SetActive(true);
                 btn_lookotherside.gameObject.SetActive(true);
                 btn_lookotherside.transform.localPosition = new Vector3(351f, -40f);
@@ -88,6 +90,7 @@ public class Pnl_Clock : MonoBehaviour
                 btn_lookotherside?.gameObject.SetActive(false);
                 btn_adjusttime?.gameObject.SetActive(false);
                 clockFront?.gameObject.SetActive(false);
+                clockPointer.gameObject.SetActive(false);
                 btn_checkdetail.gameObject.SetActive(false);
 
                 clockBack.gameObject.SetActive(true);
@@ -98,6 +101,7 @@ public class Pnl_Clock : MonoBehaviour
                 btn_lookotherside?.gameObject.SetActive(false);
                 btn_adjusttime?.gameObject.SetActive(false);
                 clockFront?.gameObject.SetActive(false);
+                clockPointer?.gameObject.SetActive(false);
                 btn_checkdetail.gameObject.SetActive(false);
 
                 clockBack.gameObject.SetActive(true);
@@ -111,11 +115,10 @@ public class Pnl_Clock : MonoBehaviour
             if (GameMgr.I.oldHouse.trueTime)
             {
                 btn_takeoffcover?.gameObject.SetActive(false);
-                clockBackCover?.gameObject.SetActive(false);
                 mechanicsHint.gameObject?.SetActive(false);
                 looksDifferent.gameObject?.SetActive(false);
 
-                btn_checkdetail.gameObject.SetActive(true);
+                AnimCoverGone();
             }
             else
             {
@@ -137,15 +140,18 @@ public class Pnl_Clock : MonoBehaviour
             btn_takeitaway.gameObject.SetActive(true);
         });
 
-        btn_takeitaway?.onClick.AddListener(() =>
+        btn_takeitaway?.onClick.AddListener(() => //ÑÛÖéÍùÏÂ×¹
         {
             btn_takeitaway?.gameObject?.SetActive(false);
             GameMgr.I.oldHouse.characterBack.gameObject.SetActive(false);
             GameMgr.I.oldHouse.clock.gameObject.SetActive(false);
 
-            Player.I.gameObject.SetActive(true);
-            GameMgr.I.oldHouse.clock910.gameObject.SetActive(true);
-            GameMgr.I.oldHouse.getEyeball = true;
+            AnimTakeEyeBall();
+            //Player.I.gameObject.SetActive(true);
+            //GameMgr.I.oldHouse.clock910.gameObject.SetActive(true);
+            //GameMgr.I.oldHouse.getEyeball = true;
+
+            GameMgr.I.oldHouse.crd.ShowItemsCollider();
         });
     }
 
@@ -157,6 +163,7 @@ public class Pnl_Clock : MonoBehaviour
         if (GameMgr.I.oldHouse.canSetClock)
         {
             clockFront.gameObject.SetActive(true);
+            clockPointer.gameObject.SetActive(true);
             btn_adjusttime?.gameObject.SetActive(true);
             btn_lookotherside?.gameObject.SetActive(true);
 
@@ -174,7 +181,53 @@ public class Pnl_Clock : MonoBehaviour
         }
     }
 
+    private void AnimCoverGone(System.Action onComplete = null)
+    {
+        print("Remove the cover.");
 
+        DOTween.Sequence()
+            .Append(clockBackCover.DOFade(1, 0.00001f))
+
+            .Append(clockBackCover.transform.DOLocalMoveX(-82f, 2f))
+            .Join(clockBackCover.DOFade(0, 3f))
+
+            .AppendCallback(() =>
+            {
+                btn_checkdetail.gameObject.SetActive(true);
+            });
+    }
+
+    private void AnimTakeEyeBall(System.Action onComplete = null)
+    {
+        print("Take the eyeball away.");
+
+        DOTween.Sequence()
+            .Append(eyeBallDetail.DOFade(1, 0.00001f))
+
+            .Append(eyeBallDetail.transform.DOLocalMoveY(-247f, 2f))
+            .Join(eyeBallDetail.DOFade(0, 3f))
+
+            .AppendCallback(() =>
+            {
+                Player.I.gameObject.SetActive(true);
+                GameMgr.I.oldHouse.clock910.gameObject.SetActive(true);
+                GameMgr.I.oldHouse.getEyeball = true;
+            });
+    }
+
+    private void AnimRotatePointer(System.Action onComplete = null)
+    {
+        print("Put the eyeball into the eye socket.");
+
+        DOTween.Sequence()
+            //.Append(eyeball1.transform.DOLocalMoveX(168f, 1f))
+            .Append(clockPointer.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f, RotateMode.Fast))
+            .AppendCallback(() =>
+            {
+                btn_lookotherside.gameObject.SetActive(true);
+                GameMgr.I.oldHouse.trueTime = true;
+            });
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -182,9 +235,8 @@ public class Pnl_Clock : MonoBehaviour
     }
     void Show() 
     {
-        //this.gameObject.SetActive(true);
-        //GameMgr.I.oldHouse.crd.HideItemsCollider();
-
+        this.gameObject.SetActive(true);
+        GameMgr.I.oldHouse.crd.HideItemsCollider();
     }
     void Hide()
     {

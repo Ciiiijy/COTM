@@ -9,16 +9,16 @@ using UnityEngine.UI;
 
 public class Pnl_Drawer : MonoBehaviour
 {
-    public GameObject eyeball1;
+    public Image eyeball1;
     public GameObject eyeball2;
     public GameObject doll;
-    public GameObject script;
     public GameObject backpack;
     public GameObject drawer;
     public GameObject monologue_NoEyeball;
     public GameObject monologue_drag;
     public GameObject monologue_wrong;
     public GameObject monologue_script;
+    public GameObject monologue_hint;
     public TextMeshProUGUI NoEyeballLine;
     public Button btn_openBackpack;
     public Button Shutdown_NoEyeball;
@@ -27,12 +27,17 @@ public class Pnl_Drawer : MonoBehaviour
     public Button Shutdown_script;
     public Button btn_putEyeball;
     public Button btn_changeOrder;
+    public Button btn_getScript;
     public Button btn_takeScript;
+    public Button btn_nottakeScript;
     public Button darkBack;
     public Image mouth;
+    public Image script;
 
     public void Init()
     {
+        mouth.canvas.sortingOrder = 3;
+
         Hide();
         eyeball1?.gameObject.SetActive(false);
         eyeball2?.gameObject.SetActive(false);
@@ -45,12 +50,15 @@ public class Pnl_Drawer : MonoBehaviour
         monologue_drag?.gameObject.SetActive(false);
         monologue_wrong?.gameObject.SetActive(false);
         monologue_script?.gameObject.SetActive(false);
+        monologue_hint?.gameObject.SetActive(false);
         darkBack?.gameObject.SetActive(false);
 
         btn_openBackpack?.gameObject.SetActive(false);
         btn_putEyeball?.gameObject.SetActive(false);
         btn_changeOrder?.gameObject.SetActive(false);
+        btn_getScript?.gameObject.SetActive(false);
         btn_takeScript?.gameObject.SetActive(false);
+        btn_nottakeScript?.gameObject.SetActive(false);
 
         mouth.gameObject.SetActive(false);
 
@@ -64,10 +72,14 @@ public class Pnl_Drawer : MonoBehaviour
             {
                 monologue_NoEyeball.gameObject.SetActive(false);
                 btn_openBackpack?.gameObject.SetActive(true);
+
+                GameMgr.I.oldHouse.crd.ShowItemsCollider();
             }
             else
             {
                 this.gameObject.SetActive(false);
+
+                GameMgr.I.oldHouse.crd.ShowItemsCollider();
             }
         });
 
@@ -85,6 +97,8 @@ public class Pnl_Drawer : MonoBehaviour
         Shutdown_drag.onClick.AddListener(() =>
         {
             monologue_drag.gameObject.SetActive(false);
+
+            eyeball1.canvas.sortingOrder = 5;
             btn_putEyeball.gameObject.SetActive(true);
         });
 
@@ -94,8 +108,7 @@ public class Pnl_Drawer : MonoBehaviour
             btn_putEyeball.gameObject.SetActive(false);
             monologue_drag.gameObject.SetActive(false);
 
-            eyeball1.transform.localPosition = new Vector3(20f, 243f);
-            monologue_wrong.gameObject.SetActive(true);
+            AnimPutEyeball();
         });
 
         Shutdown_wrong.onClick.AddListener(() =>
@@ -115,14 +128,16 @@ public class Pnl_Drawer : MonoBehaviour
         {
             monologue_script.gameObject.SetActive(false);
 
-            btn_takeScript.gameObject.SetActive(true);
+            btn_getScript.gameObject.SetActive(true);
+            script.transform.localPosition = new Vector3(-370f, 714f);
         });
 
-        btn_takeScript.onClick.AddListener(() =>
+        btn_getScript.onClick.AddListener(() =>
         {
-            btn_takeScript.gameObject.SetActive(false);
+            btn_getScript.gameObject.SetActive(false);
 
             darkBack.gameObject.SetActive(true);
+            AnimTakeScript();
             script.gameObject.SetActive(true);
         });
 
@@ -145,6 +160,8 @@ public class Pnl_Drawer : MonoBehaviour
         this.gameObject.SetActive(true);
         //UIMgr.I.ui_oldHouse.ShowBtnBack(this.gameObject);
         GameMgr.I.player.CanMove(false);
+
+        GameMgr.I.oldHouse.crd.HideItemsCollider();
     }
 
     private void AnimChangeEye(System.Action onComplete = null)
@@ -169,6 +186,40 @@ public class Pnl_Drawer : MonoBehaviour
             .AppendCallback(() =>
             {
                 monologue_script.gameObject.SetActive(true);
+            });
+    }
+
+    private void AnimPutEyeball(System.Action onComplete = null)
+    {
+        print("Put the eyeball into the eye socket.");
+
+        DOTween.Sequence()
+            .Append(eyeball1.transform.DOLocalMoveX(168f, 1f))
+            .Append(eyeball1.transform.DOLocalMoveY(243f, 0.5f))
+            .Append(eyeball1.transform.DOLocalMoveX(20f, 0.5f))
+
+            .AppendCallback(() =>
+            {
+                monologue_wrong.gameObject.SetActive(true);
+            });
+    }
+
+    private void AnimTakeScript(System.Action onComplete = null)
+    {
+        print("Put the eyeball into the eye socket.");
+
+        DOTween.Sequence()
+            .Append(script.DOFade(0, 0.00001f))
+
+            .Append(script.transform.DOLocalMoveY(145f, 1f))
+            .Join(script.DOFade(1, 1.5f))
+
+            .AppendCallback(() =>
+            {
+                monologue_hint.gameObject.SetActive(true);
+                btn_takeScript?.gameObject.SetActive(true);
+                btn_nottakeScript?.gameObject.SetActive(true);
+                eyeball1.canvas.sortingOrder = 1;
             });
     }
 

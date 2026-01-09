@@ -31,7 +31,7 @@ public class OnTheBus : MonoBehaviour,SceneFunc
 
     private void Anim_ShackBus()
     {
-        //
+
         DOTween.Sequence()
             .AppendInterval(1f)
             .Append(bus.DOLocalMoveY(0.05f, 0.15f))

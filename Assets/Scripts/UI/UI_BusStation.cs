@@ -12,7 +12,7 @@ public class UI_BusStation : MonoBehaviour,SceneFunc
     {
         Hide();
         //btn_L?.gameObject.SetActive(false);
-        btn_R?.gameObject.SetActive(false); 
+        btn_R?.gameObject.SetActive(false);
     }
     
 

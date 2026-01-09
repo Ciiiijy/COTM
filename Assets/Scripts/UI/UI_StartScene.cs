@@ -23,7 +23,7 @@ public class UI_StartScene : MonoBehaviour
                 }, 
                 () => 
                 {
-                    ////Give a quick test.
+                    //Give a quick test.
                     GameMgr.I.onTheMountain.Show();
                     UIMgr.I.ui_onTheMountain.Show();
 

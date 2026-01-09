@@ -22,7 +22,8 @@ public class Pnl_Chair : MonoBehaviour
 
     public void Init()
     {
-        this.gameObject.SetActive(true);
+        Hide();
+        //this.gameObject.SetActive(true);
 
         //GameMgr.I.oldHouse.canSetClock = false;
         btn_MoveTheChair.gameObject.SetActive(false);
@@ -37,6 +38,7 @@ public class Pnl_Chair : MonoBehaviour
             GameMgr.I.player.transform.localPosition = new Vector3(9.78f, -4.65f);
             Player.I.gameObject.SetActive(false);
             GameMgr.I.oldHouse.characterBack.gameObject.SetActive(true);
+            //CameraCtrl.I.transform.position = new Vector3(7.58f, -10f);
             //characterBack.gameObject.SetActive(true);
             //characterBack.transform.localPosition = new Vector3(1817, 570);
 
@@ -84,6 +86,9 @@ public class Pnl_Chair : MonoBehaviour
             {
                 process.gameObject.SetActive(false);
                 standOnTheChair.gameObject.SetActive(false);
+                Player.I.transform.localPosition = new Vector3(8.97f, -4.72f);
+
+                GameMgr.I.oldHouse.crd.ShowItemsCollider();
             });
         //GameMgr.I.oldHouse.canSetClock = true;
     }
@@ -108,6 +113,7 @@ public class Pnl_Chair : MonoBehaviour
     void Show()
     {
         this.gameObject.SetActive(true);
+        GameMgr.I.oldHouse.crd.HideItemsCollider();
     }
     void Hide()
     {
